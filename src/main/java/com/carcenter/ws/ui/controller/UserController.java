@@ -28,6 +28,7 @@ public class UserController {
 		
 		UserDto userDto = new UserDto();
 		BeanUtils.copyProperties(userDetails, userDto); // src obj -> target obj
+		
 		UserDto createdUser = userService.createUser(userDto);
 		BeanUtils.copyProperties(createdUser, returnValue);
 		
