@@ -5,6 +5,7 @@ import SignIn from './components/SignIn.vue'
 import SignUp from './components/SignUp.vue'
 import Home from './components/Home.vue'
 import About from './components/About.vue'
+import Logged from './views/Logged.vue'
 
 
 Vue.use(Router);
@@ -13,9 +14,14 @@ export const router = new Router({
     mode:'history',
     routes: [
       {
-        path: '/',
+        path: '/home',
         name: 'home',
         component: Home
+      },
+      {
+        path: '/',
+        name: 'logged',
+        component: Logged
       },
       {
         path: '/signin',
