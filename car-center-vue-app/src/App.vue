@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-menu></app-menu>
+    <!-- <app-menu></app-menu> -->
     <router-view></router-view>
   </div>
 </template>
@@ -11,7 +11,7 @@ import Menu from './components/Menu.vue'
 
 export default {
   components: {
-    'app-menu': Menu,
+    'app-menu': Menu
   },
   data () {
     return {
@@ -23,11 +23,11 @@ export default {
 
 <style>
 html {
-    background: url(./assets/background.jpg) no-repeat center center fixed;
+    /* background: url(./assets/background.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
 }
 
 body {

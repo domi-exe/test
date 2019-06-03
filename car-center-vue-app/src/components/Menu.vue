@@ -27,6 +27,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    /* DO MENU PO ZALOGOWANIU  */
+    
+    position: fixed;
+    top: 0;
+    width: 96vw;
+    margin: 0 2vw 0 2vw;
 }
 
 h2 { 
