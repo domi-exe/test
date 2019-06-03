@@ -1,4 +1,4 @@
-package com.project.security.carcenterresourceserver.models;
+package com.project.security.carcenterresourceserver.database.user;
 
 public class UserOperationStatusModel {
     private String operationResult;

@@ -1,4 +1,4 @@
-package com.project.security.carcenterresourceserver.models;
+package com.project.security.carcenterresourceserver.database.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

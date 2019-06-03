@@ -1,6 +1,6 @@
-package com.project.security.carcenterresourceserver.repositories;
+package com.project.security.carcenterresourceserver.database.repositories;
 
-import com.project.security.carcenterresourceserver.models.User;
+import com.project.security.carcenterresourceserver.database.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
