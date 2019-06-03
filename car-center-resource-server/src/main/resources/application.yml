@@ -9,3 +9,17 @@ security:
       client-id: resource-server
       client-secret: secret
       authorized-grant-types: password
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cars
+    username:
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      jdbc:
+        time_zone = Europe/Warsaw
+    generate-ddl: true
+    show-sql: true

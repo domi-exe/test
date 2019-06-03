@@ -14,7 +14,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Collections;
 
-@EnableAuthorizationServer
+//@EnableAuthorizationServer
 @SpringBootApplication
 public class CarCenterAuthServerApplication implements CommandLineRunner {
 
@@ -27,10 +27,10 @@ public class CarCenterAuthServerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		accountRepository.deleteAll();
-		accountRepository.save(new Account("Eli", "eli"));
+		//accountRepository.deleteAll();
+		//accountRepository.save(new Account("Eli", "eli"));
 
-		System.out.println("it works");
+		//System.out.println("it works");
 	}
 
 	// Fix the CORS errors

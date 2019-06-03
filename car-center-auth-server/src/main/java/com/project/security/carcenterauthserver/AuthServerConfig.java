@@ -4,6 +4,8 @@ import jdk.nashorn.internal.parser.TokenStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,9 +15,15 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
+
+    @Autowired
+    private Environment env;
 
     @Autowired
     PasswordEncoder encoder;
@@ -40,15 +48,16 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     // w przyszłości zastąpić bazą
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory()
+        /*clients.inMemory()
                 .withClient("client")
                 .secret(encoder.encode("secret"))
                 .authorizedGrantTypes("password")
                 .scopes("all")
-        .and().withClient("resource-server")
-        .secret(encoder.encode("secret"))
-        .authorizedGrantTypes("password")
-        .scopes("all");
+                .and().withClient("resource-server")
+                .secret(encoder.encode("secret"))
+                .authorizedGrantTypes("password")
+                .scopes("all");*/
+        clients.jdbc(dataSource());
     }
 
     // where we define authentication manager
@@ -61,13 +70,24 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     // do 2 Override
     @Bean
-    PasswordEncoder encoder() {
+    public BCryptPasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
     }
 
     // do 3
     @Bean
     TokenStore tokenStore() {
-        return new InMemoryTokenStore();
+        return new JdbcTokenStore(dataSource());
+    }
+
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+
+        dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
+        dataSource.setUrl(env.getProperty("jdbc.url"));
+        dataSource.setUsername(env.getProperty("jdbc.user"));
+        dataSource.setPassword(env.getProperty("jdbc.pass"));
+        return dataSource;
     }
 }
