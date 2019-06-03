@@ -69,7 +69,6 @@ export default {
 
 .img1Container {
     position: relative;
-
 }
  .img1Container .firstImg {
     width: 100%;
@@ -92,10 +91,11 @@ export default {
     color: #fff;
     font-size: 56px;
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+    font-weight: 400;
 }
 .mainContainer {
     display: flex;
@@ -113,7 +113,8 @@ export default {
 
 .g {
     color: black;
-    margin: 10px;
+    margin: 10px 30px 10px 30px;
+    /* margin: 10px; */
     text-align: center;
 }
 

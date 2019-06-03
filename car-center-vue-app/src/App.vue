@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap&subset=latin-ext');
 html {
     /* background: url(./assets/background.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;

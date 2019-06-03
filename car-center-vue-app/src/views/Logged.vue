@@ -100,6 +100,7 @@ export default {
     font-size: 50px;
     color: rgb(71, 71, 71);
     padding-top: 30px;
+    font-weight: 400;
 
 }
 .g {
