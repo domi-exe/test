@@ -6,6 +6,7 @@ import SignUp from './components/SignUp.vue'
 import Home from './components/Home.vue'
 import About from './components/About.vue'
 import Logged from './views/Logged.vue'
+import Vehicles from './views/Vehicles.vue'
 
 
 Vue.use(Router);
@@ -37,6 +38,11 @@ export const router = new Router({
         path: '/about',
         name: 'about',
         component: About
+      },
+      {
+        path: '/vehicles',
+        name: 'vehicles',
+        component: Vehicles
       },
       {
           // other

@@ -30,7 +30,7 @@
                 //We loop through all our images by calling the 'next' method of our component every 2 seconds
                 setInterval(() => {
                     this.$refs.slideshow.next();
-                }, 2000);
+                }, 5000);
             }
         },
         mounted() {

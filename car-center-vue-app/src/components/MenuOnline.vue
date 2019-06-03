@@ -4,10 +4,10 @@
     <nav id="nav">
       <ul>
           <!--  zmienić  -> to -->
-        <li><router-link to="/">Vehicles</router-link></li>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/vehicles">Vehicles</router-link></li>
         <li><router-link to="/about">Profile</router-link></li>
         <li><router-link to="/signin">Log out</router-link></li>
-        <li><router-link to="/about">History</router-link></li>
       </ul>
     </nav>
   </div>
@@ -31,7 +31,8 @@ export default {
 
     /* DO MENU PO ZALOGOWANIU  */
     
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     top: 0;
     width: 96vw;
     margin: 0 2.5vw 0 1.5vw;

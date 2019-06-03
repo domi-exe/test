@@ -17,6 +17,12 @@ export default {
 </script>
 
 <style>
-    .imgContainer {
+    .imgContainer .image {
+        width: 215px;
+        height: 118px;
+    }
+    .imgContainer .image:hover {
+        /* width: 215px;
+        height: 118px; */
     }
 </style>
