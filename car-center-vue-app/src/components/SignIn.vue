@@ -1,28 +1,35 @@
 <template>
-  <div class="contentContainer">
-    <h1>Sign in</h1>
-    <form class="login" @submit.prevent="handleSubmit" > 
-      <div class="inputBox">
-        <input type="text" required="" v-model="username">
-        <label>username</label>
-      </div>
-      <div class="inputBox">
-        <input type="password" required="" v-model="password">
-        <label>password</label>
-        <div class="buttonContainer">
-          <button type="submit">Log in</button>
+  <div class="containerLoggout">
+    <app-menu></app-menu>
+    <div class="contentContainer">
+      <h1>Sign in</h1>
+      <form class="login" @submit.prevent="handleSubmit" > 
+        <div class="inputBox">
+          <input type="text" required="" v-model="username">
+          <label>username</label>
         </div>
+        <div class="inputBox">
+          <input type="password" required="" v-model="password">
+          <label>password</label>
+          <div class="buttonContainer">
+            <button type="submit">Log in</button>
+          </div>
       </div>
     </form>
     
+  </div>
   </div>
 </template>
 
 <script>
 import { router } from '../routes';
 import { userService } from '../services';
+import Menu from './Menu.vue'
 
 export default {
+  components: {
+    "app-menu": Menu,
+  },
   data () {
     return {
       error: false,
