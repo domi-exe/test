@@ -72,7 +72,6 @@ export default {
 
 <style>
 .search {
-    /* height: 500px; */
     height: 100%;
     width: 320px;
     background-color: rgb(231, 231, 231);
@@ -83,7 +82,6 @@ export default {
     height: 80px;
     width: 100%;
     background:  rgb(59, 59, 59);
-    /* text-align: center; */
 }
 .search .searchName h2 {
     font-weight: 400;
@@ -93,7 +91,13 @@ export default {
     
 }
 .search .searchContainer {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+}
+.search .searchContainer::after {
+    content: "";
+    border: 0.4px solid rgb(214, 214, 214);
+    display: block;
+    margin: 0 20px 0 20px;
 }
 .search .searchContainer h3{
     font-weight: 400;
@@ -108,19 +112,8 @@ export default {
     grid-auto-rows: min-content;
     
 }
-.search .searchManCheckbox {
-
-    /* height: 40px; */
-}
-
-/* .search .searchContainer .regular-checkbox {
-   margin: 15px;
-   transform: scale(2.0);
-} */
 
 .search .mycheck{ 
-    /* opacity: 0; */
-    /* transform: scale(2.0); */
     margin: 15px;
 }
 
@@ -129,9 +122,4 @@ export default {
     color: rgb(71, 71, 71);
 }
 
-/* .search .searchManCheckbox input::before {
-    content: "";
-    border: 1px solid; 
-    transform: scale(2.0);
-} */
 </style>

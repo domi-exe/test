@@ -25,7 +25,6 @@
 import Menu from "../components/MenuOnline.vue"
 import Image from "../components/Image.vue"
 import Search from "../components/Search.vue"
-
 export default {
     components: {
         "app-menu": Menu,
@@ -66,7 +65,6 @@ export default {
     display: flex;
     flex-direction: column;
 }
-
 .img1Container {
     position: relative;
 }
@@ -75,7 +73,6 @@ export default {
     height: auto;
     object-fit: cover;
 }
-
 .img1Container .cover {
     /* background-color: rgba(255,255,255,0.6); */
     background-color: #1b85ffa1;
@@ -85,7 +82,6 @@ export default {
     top: 0%;
     left: 0%;
 }
-
 .img1Container h3 {
     /* color: #ff1414; */
     color: #fff;
@@ -110,14 +106,12 @@ export default {
     display: flex;
     flex-wrap: wrap;
 }
-
 .g {
     color: black;
     margin: 10px 30px 10px 30px;
     /* margin: 10px; */
     text-align: center;
 }
-
 .g p {
     color: #2f3538;
     font-size: 14px;
@@ -135,5 +129,10 @@ export default {
     color: #1b85ff;
     font-size: 20px;
     /* background: #2f3538; */
+}
+.g h4::after {
+    content: "";
+    border: 0.4px solid #8b9497e7;
+    display: block;
 }
 </style>

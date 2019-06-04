@@ -75,8 +75,6 @@ export default {
     height: 45px;
     background-color: #ff1414cc;
     border: 1px solid #ff1414;
-    /* background-color: #0362cfc0;
-    border: 1px solid #0362cfc0; */
     color: #fff;
     font-size: 16px;
     position: absolute;

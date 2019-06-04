@@ -7,6 +7,7 @@ import Home from './components/Home.vue'
 import About from './components/About.vue'
 import Logged from './views/Logged.vue'
 import Vehicles from './views/Vehicles.vue'
+import Profile from './views/Profile.vue'
 
 
 Vue.use(Router);
@@ -43,6 +44,11 @@ export const router = new Router({
         path: '/vehicles',
         name: 'vehicles',
         component: Vehicles
+      },
+      {
+        path: '/profile',
+        name: 'profile',
+        component: Profile
       },
       {
           // other
