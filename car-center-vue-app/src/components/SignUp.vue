@@ -1,28 +1,36 @@
 <template>
-    <div class="contentContainer">
-        <h1>Sign up</h1>
-        <form v-on:submit.prevent="register">
-            <div class="inputBox">
-                <input type="text" required="" v-model="user.email">
-                <label>email</label>
+    <div class="containerLoggout">
+        <app-menu></app-menu>
+        <div class="contentContainer">
+            <h1>Sign up</h1>
+            <form v-on:submit.prevent="register">
+                <div class="inputBox">
+                    <input type="text" required="" v-model="user.email">
+                    <label>email</label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" required="" v-model="user.username">
+                    <label>username</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" required="" v-model="user.password">
+                    <label>password</label>
+                </div>
+            </form>
+            <div class="buttonContainer">
+                <button type="submit">Sign up</button>
             </div>
-            <div class="inputBox">
-                <input type="text" required="" v-model="user.username">
-                <label>username</label>
-            </div>
-            <div class="inputBox">
-                <input type="password" required="" v-model="user.password">
-                <label>password</label>
-            </div>
-        </form>
-        <div class="buttonContainer">
-            <button type="submit">Sign up</button>
         </div>
     </div>
 </template>
 
 <script>
+import Menu from './Menu.vue'
+
 export default {
+  components: {
+    "app-menu": Menu,
+  },
     data() {
         return {
           user: {
