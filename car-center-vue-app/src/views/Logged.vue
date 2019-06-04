@@ -75,8 +75,6 @@ export default {
     height: 45px;
     background-color: #ff1414cc;
     border: 1px solid #ff1414;
-    /* background-color: #0362cfc0;
-    border: 1px solid #0362cfc0; */
     color: #fff;
     font-size: 16px;
     position: absolute;
@@ -100,6 +98,7 @@ export default {
     font-size: 50px;
     color: rgb(71, 71, 71);
     padding-top: 30px;
+    font-weight: 400;
 
 }
 .g {
