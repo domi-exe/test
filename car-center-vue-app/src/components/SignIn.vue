@@ -25,7 +25,6 @@
 // import Vue from 'vue'
 import axios from 'axios'
 import { router } from '../routes';
-import { userService } from '../services';
 import Menu from './Menu.vue'
 
 export default {
@@ -37,22 +36,15 @@ export default {
       error: false,
       returnUrl: '',
       username: '',
-      password: '',
-      submitted: false,
-      data: []
+      password: ''
     }
   },
    created () {
-        // reset login status
-      userService.logout();
-
-        // get return url from route parameters
-      this.returnUrl = this.$route.query.returnUrl || '/signin';
     },
     methods: {
       login: function() {
         const SESION_URL = 'localhost:8082/oauth/token';
-        let reqData = "grant_type=password&username=Eli&password=eli";
+        let reqData = "grant_type=password&username="+this.username+"&password="+this.password;
   
         axios.request({
           url: "/oauth/token",
@@ -64,8 +56,12 @@ export default {
           },
           data: (reqData),
 
-        }).then(function(res) {
-          console.log(res);
+        }).then(function(resp) {
+          const token = resp.data.access_token;
+          localStorage.setItem('user-token', token);
+          localStorage.setItem('isAuthenticated', "true");
+          axios.defaults.headers.common['Authorization'] = token;
+          router.push('/');
         })
         .catch(function(error) {
           console.log('Error on Authentication');

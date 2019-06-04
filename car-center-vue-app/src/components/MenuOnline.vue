@@ -7,17 +7,26 @@
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/vehicles">Vehicles</router-link></li>
         <li><router-link to="/profile">Profile</router-link></li>
-        <li><router-link to="/signin">Log out</router-link></li>
+        <li v-on:click="logout"><router-link to="/signin">Log out</router-link></li>
       </ul>
     </nav>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Fractals App',
   data () {
     return {
+    }
+  },
+  methods: {
+    logout: function() {
+      localStorage.removeItem('user-token');
+      localStorage.setItem('isAuthenticated', "false");
+      delete axios.defaults.headers.common['Authorization'];
     }
   }
 }
