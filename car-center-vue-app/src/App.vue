@@ -150,7 +150,7 @@ body {
     text-align: center;
     font-size: 1em;
     color: white;
-    font-weight: bold;
+    font-weight: 300;
     border: 3px solid rgb(31, 31, 31);
     outline: none;
     border-radius: 24px;

@@ -3,7 +3,7 @@
     <app-menu></app-menu>
     <div class="contentContainer">
       <h1>Sign in</h1>
-      <form class="login" @submit.prevent="handleSubmit" > 
+      <form class="login" @submit.prevent="login" > 
         <div class="inputBox">
           <input type="text" required="" v-model="username">
           <label>username</label>
@@ -22,6 +22,8 @@
 </template>
 
 <script>
+// import Vue from 'vue'
+import axios from 'axios'
 import { router } from '../routes';
 import { userService } from '../services';
 import Menu from './Menu.vue'
@@ -48,45 +50,27 @@ export default {
       this.returnUrl = this.$route.query.returnUrl || '/signin';
     },
     methods: {
-      handleSubmit (e) {
-        this.submitted = true;
-        const { username, password } = this;
+      login: function() {
+        const SESION_URL = 'localhost:8082/oauth/token';
+        let reqData = "grant_type=password&username=Eli&password=eli";
+  
+        axios.request({
+          url: "/oauth/token",
+          method: "post",
+          baseURL: "http://localhost:8082/",
+          auth: {
+            username: 'client',
+            password: 'secret'
+          },
+          data: (reqData),
 
-
-      if (!(username && password)) {
-                return;
-            }
-
-        userService.login(username, password)
-        .then(
-            user => router.push(this.returnUrl),
-            error => {
-            this.error = error;
-           }
-         );
-
+        }).then(function(res) {
+          console.log(res);
+        })
+        .catch(function(error) {
+          console.log('Error on Authentication');
+        });
       }
-    // login: function(){
-    //     this.$http.post('http://35.238.239.157:8000/login/' ,{
-    //         username: this.user.username,
-    //         password: this.user.password})
-    //         .then(request => this.loginSuccessful(request))
-    //         .catch(() => this.loginFailed())
-    //         },
-    //         loginSuccessful (req) {
-    //             if(!req.data.token) {
-    //                 this.loginFailed();
-    //                 return;
-    //             }
-    //             localStorage.token = req.data.token;
-    //             this.error = false;
-    //             this.authorization = true;
-    //             this.$router.replace(this.$route.query.redirect || '/online')
-    //         },
-    //         loginFailed () {
-    //             this.error = 'Login failed!';
-    //             delete localStorage.token;
-    //         }
   }
 };
 </script>
