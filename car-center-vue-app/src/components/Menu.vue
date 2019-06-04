@@ -61,6 +61,6 @@ h2 {
 
 #nav a:hover {
     color: #000;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.815);
 }
 </style>
