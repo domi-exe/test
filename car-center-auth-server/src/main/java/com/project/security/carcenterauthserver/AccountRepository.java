@@ -1,5 +1,6 @@
 package com.project.security.carcenterauthserver;
 
+import com.project.security.carcenterauthserver.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

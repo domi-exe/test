@@ -14,7 +14,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Collections;
 
-@EnableAuthorizationServer
+//@EnableAuthorizationServer
 @SpringBootApplication
 public class CarCenterAuthServerApplication implements CommandLineRunner {
 

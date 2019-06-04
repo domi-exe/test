@@ -45,10 +45,10 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
                 .secret(encoder.encode("secret"))
                 .authorizedGrantTypes("password")
                 .scopes("all")
-        .and().withClient("resource-server")
-        .secret(encoder.encode("secret"))
-        .authorizedGrantTypes("password")
-        .scopes("all");
+                .and().withClient("resource-server")
+                .secret(encoder.encode("secret"))
+                .authorizedGrantTypes("password")
+                .scopes("all");
     }
 
     // where we define authentication manager
