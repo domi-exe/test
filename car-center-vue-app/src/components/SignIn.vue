@@ -59,9 +59,9 @@ export default {
         }).then(function(resp) {
           const token = resp.data.access_token;
           localStorage.setItem('user-token', token);
-          localStorage.setItem('isAuthenticated', "true");
+          localStorage.setItem('isAuthenticated', true);
           axios.defaults.headers.common['Authorization'] = token;
-          router.push('/');
+          router.push('/logged');
         })
         .catch(function(error) {
           console.log('Error on Authentication');

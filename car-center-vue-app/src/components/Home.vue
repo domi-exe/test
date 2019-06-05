@@ -1,26 +1,21 @@
 <template>
-    <div class="gallery"> 
-        <!-- <h1>Welcome<br>to the<br>Car Center App</h1> -->
-        <slide></slide>
+    <div class="containerLoggout">
+        <app-menu></app-menu>
+        <div class="contentContainer"> 
+            <h1>Home</h1>
+        </div>
     </div>
 </template>
 
 <script>
-import Slide from "./Slideshow.vue"
+
+import Menu from "./Menu.vue"
 export default {
     components: {
-    "slide" : Slide,
-    }
-    
+        "app-menu": Menu,
+    },   
 }
 </script>
 
 <style>
-.gallery {
-    display: flex;
-    height: 80vh;
-    width: 100vw;
-    align-items: center;
-    justify-content: center;
-}
 </style>
