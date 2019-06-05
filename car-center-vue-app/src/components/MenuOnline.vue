@@ -4,10 +4,10 @@
     <nav id="nav">
       <ul>
           <!--  zmienić  -> to -->
-        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/logged">Home</router-link></li>
         <li><router-link to="/vehicles">Vehicles</router-link></li>
         <li><router-link to="/profile">Profile</router-link></li>
-        <li v-on:click="logout"><router-link to="/signin">Log out</router-link></li>
+        <li v-on:click="logout"><router-link to="">Log out</router-link></li>
       </ul>
     </nav>
   </div>
@@ -15,6 +15,7 @@
 
 <script>
 import axios from 'axios'
+import { router } from '../routes';
 
 export default {
   name: 'Fractals App',
@@ -25,8 +26,9 @@ export default {
   methods: {
     logout: function() {
       localStorage.removeItem('user-token');
-      localStorage.setItem('isAuthenticated', "false");
+      localStorage.setItem('isAuthenticated', false);
       delete axios.defaults.headers.common['Authorization'];
+      router.push('/signin');
     }
   }
 }

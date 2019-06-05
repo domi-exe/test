@@ -16,16 +16,19 @@
                     <input type="password" required="" v-model="user.password">
                     <label>password</label>
                 </div>
+                <div class="buttonContainer">
+                    <button type="submit">Sign up</button>
+                </div>
             </form>
-            <div class="buttonContainer">
-                <button type="submit">Sign up</button>
-            </div>
+
         </div>
     </div>
 </template>
 
 <script>
 import Menu from './Menu.vue'
+import axios from 'axios'
+import { router } from '../routes';
 
 export default {
   components: {
@@ -34,34 +37,33 @@ export default {
     data() {
         return {
           user: {
-              email: '',
               username: '',
+              email: '',
               password: ''
           }
         }
     },
      methods: {
-        register: function(){
-            this.$http.post('http://35.238.239.157:8000/signup/' ,{
-                email: this.user.email,
-                username: this.user.username,
-                password: this.user.password})
-            .then(request => this.registerSuccessful(request))
-            .catch(() => this.registerFailed())
-            },
-            registerSuccessful (req) {
-                if(!req.data.token) {
-                    this.registerFailed();
-                    return;
-                }
-                localStorage.token = req.data.token;
-                this.error = false;
-                this.$router.replace(this.$route.query.redirect || '/signin')
-            },
-            registerFailed () {
-                this.error = 'Registration failed!';
-                delete localStorage.token;
-            },
+      register: function() {
+        const SESION_URL = 'localhost:8082/oauth/token';
+        let reqData = "username=Dominika&email=dominika@com&password=dominika";
+  
+        axios.request({
+          url: "/rest/user/addUser",
+          method: "post",
+          baseURL: "http://localhost:8083/",
+          data: this.user,
+
+        }).then(function(resp) {
+          console.log(resp);
+          if(resp.status == 200) {
+            router.push('/signin');
+          }
+        })
+        .catch(function(error) {
+          console.log('Error on Authentication');
+        });
+      }
         }
 }
 </script>

@@ -12,43 +12,68 @@ import Profile from './views/Profile.vue'
 
 Vue.use(Router);
 
+const ifNotAuthenticated = (to, from, next) => {
+  if (localStorage.isAuthenticated === "false" || localStorage.isAuthenticated === undefined) {
+    console.log(localStorage.isAuthenticated);
+    next()
+    return
+  }
+  console.log(next);
+  next('/logged')
+}
+
+const ifAuthenticated = (to, from, next) => {
+  if (localStorage.isAuthenticated === "true") {
+    next()
+    return
+  }
+  next('/signin')
+}
+
 export const router = new Router({
     mode:'history',
     routes: [
       {
-        path: '/home',
+        path: '/',
         name: 'home',
-        component: Home
+        component: Home,
+        beforeEnter: ifNotAuthenticated
       },
       {
-        path: '/',
+        path: '/logged',
         name: 'logged',
-        component: Logged
+        component: Logged,
+        beforeEnter: ifAuthenticated
       },
       {
         path: '/signin',
         name: 'login',
-        component: SignIn
+        component: SignIn,
+        beforeEnter: ifNotAuthenticated
       },
       {
         path: '/signup',
         name: 'signup',
-        component: SignUp
+        component: SignUp,
+        beforeEnter: ifNotAuthenticated
       },
       {
         path: '/about',
         name: 'about',
-        component: About
+        component: About,
+        beforeEnter: ifNotAuthenticated
       },
       {
         path: '/vehicles',
         name: 'vehicles',
-        component: Vehicles
+        component: Vehicles,
+        beforeEnter: ifAuthenticated
       },
       {
         path: '/profile',
         name: 'profile',
-        component: Profile
+        component: Profile,
+        beforeEnter: ifAuthenticated
       },
       {
           // other
@@ -58,18 +83,4 @@ export const router = new Router({
     ]
   });
 
-  router.beforeEach((to, from, next) => {
-    // redirect to login page if not logged in and trying to access a restricted page
-    const publicPages = ['/signin'];
-    const authRequired = !publicPages.includes(to.path);
-    const loggedIn = localStorage.getItem('user');
-  
-    if (authRequired && !loggedIn) {
-    //   return next({ 
-    //     path: '/signin', 
-    //     query: { returnUrl: to.path } 
-    //   });
-    }
-  
-    next();
-  })
+ 
