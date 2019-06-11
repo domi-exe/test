@@ -15,7 +15,7 @@
         </div>
         <div class="contentImg">
             <img src="../assets/con3.jpg" alt="" class="conImg">
-            <button>See all vehicles</button>
+            <button v-on:click="goTo">See all vehicles</button>
         </div>
 
         <!-- <my-gallery></my-gallery> -->
@@ -26,6 +26,7 @@
 import Menu from "../components/MenuOnline.vue"
 import Slide from "../components/Slideshow.vue"
 import Image from "../components/Image.vue"
+import { router } from '../routes';
 
 export default {
     components: {
@@ -36,15 +37,20 @@ export default {
     data () {
         return {
             imgSrc: [
-                // {source: "https://build.ford.com/dig/Ford/Fiesta/2019/HD-THUMB/Image[%7CFord%7CFiesta%7C2019%7C1%7C1.%7C100A.P4A..UX..885.SDN.64Y.CLO.44C.S.89D.58F.]/EXT/5/vehicle.png"},
-                {source: "https://build.ford.com/dig/Ford/Fiesta/2019/HD-THUMB/Image[%7CFord%7CFiesta%7C2019%7C1%7C1.%7C100A.P4A..UX..885.SDN.64Y.CLO.44C.S.89D.58F.]/EXT/5/vehicle.png"},
-                {source: "https://build.ford.com/dig/Ford/Fiesta/2019/HD-THUMB/Image[%7CFord%7CFiesta%7C2019%7C1%7C1.%7C100A.P4A..UX..885.SDN.64Y.CLO.44C.S.89D.58F.]/EXT/5/vehicle.png"},
-                {source: "https://build.ford.com/dig/Ford/Fiesta/2019/HD-THUMB/Image[%7CFord%7CFiesta%7C2019%7C1%7C1.%7C100A.P4A..UX..885.SDN.64Y.CLO.44C.S.89D.58F.]/EXT/5/vehicle.png"},
-                {source: "https://build.ford.com/dig/Ford/Fiesta/2019/HD-THUMB/Image[%7CFord%7CFiesta%7C2019%7C1%7C1.%7C100A.P4A..UX..885.SDN.64Y.CLO.44C.S.89D.58F.]/EXT/5/vehicle.png"},
-                {source: "https://build.ford.com/dig/Ford/Fiesta/2019/HD-THUMB/Image[%7CFord%7CFiesta%7C2019%7C1%7C1.%7C100A.P4A..UX..885.SDN.64Y.CLO.44C.S.89D.58F.]/EXT/5/vehicle.png"},
+                // {source: "https://build.ford.com/dig/Ford/Mustang/2019/HD-THUMB/Image[|Ford|Mustang|2019|1|1.|100A.P8T..J7..882.~ICPAB.LTS.DUM.COU.CJDAA.~RZZ00.LRS.64A.CLO.44X.EBST.891.13D.]/EXT/5/vehicle.png"},
+                {source: "https://build.ford.com/dig/Ford/Mustang/2019/HD-THUMB/Image[|Ford|Mustang|2019|1|1.|100A.P8T..J7..882.~ICPAB.LTS.DUM.COU.CJDAA.~RZZ00.LRS.64A.CLO.44X.EBST.891.13D.]/EXT/5/vehicle.png"},
+                {source: "https://build.ford.com/dig/Ford/Mustang/2019/HD-THUMB/Image[|Ford|Mustang|2019|1|1.|100A.P8T..J7..882.~ICPAB.LTS.DUM.COU.CJDAA.~RZZ00.LRS.64A.CLO.44X.EBST.891.13D.]/EXT/5/vehicle.png"},
+                {source: "https://build.ford.com/dig/Ford/Mustang/2019/HD-THUMB/Image[|Ford|Mustang|2019|1|1.|100A.P8T..J7..882.~ICPAB.LTS.DUM.COU.CJDAA.~RZZ00.LRS.64A.CLO.44X.EBST.891.13D.]/EXT/5/vehicle.png"},
+                {source: "https://build.ford.com/dig/Ford/Mustang/2019/HD-THUMB/Image[|Ford|Mustang|2019|1|1.|100A.P8T..J7..882.~ICPAB.LTS.DUM.COU.CJDAA.~RZZ00.LRS.64A.CLO.44X.EBST.891.13D.]/EXT/5/vehicle.png"},
+                {source: "https://build.ford.com/dig/Ford/Mustang/2019/HD-THUMB/Image[|Ford|Mustang|2019|1|1.|100A.P8T..J7..882.~ICPAB.LTS.DUM.COU.CJDAA.~RZZ00.LRS.64A.CLO.44X.EBST.891.13D.]/EXT/5/vehicle.png"},
                 ]
         }
         
+    },
+    methods: {
+        goTo: function() {
+            router.push('/vehicles');
+        }
     }
     
 }

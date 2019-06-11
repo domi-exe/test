@@ -1,6 +1,7 @@
 <template>
   <div class="containerLoggout">
     <app-menu></app-menu>
+    <mobile-menu></mobile-menu>
     <div class="contentContainer">
       <h1>Sign in</h1>
       <form class="login" @submit.prevent="login" > 
@@ -26,10 +27,12 @@
 import axios from 'axios'
 import { router } from '../routes';
 import Menu from './Menu.vue'
+import MobileMenu from "./MenuMobile.vue"
 
 export default {
   components: {
     "app-menu": Menu,
+    "mobile-menu": MobileMenu,
   },
   data () {
     return {
