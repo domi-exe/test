@@ -17,7 +17,7 @@
                 
             </div>
             <div class="previewContainer">
-                <button>vehicles</button>
+                <button v-on:click="goTo">vehicles</button>
             </div>
         </div>
         <form-data></form-data>
@@ -26,6 +26,7 @@
 
 <script>
 import FormData from "../components/FormData.vue"
+import { router } from '../routes';
 
 export default {
     components: {
@@ -42,6 +43,11 @@ export default {
                 'flat number': '0FN',
                 'zip code': '00-000',
             }
+        }
+    },
+    methods: {
+        goTo: function() {
+            router.push('/vehicles');
         }
     }
     

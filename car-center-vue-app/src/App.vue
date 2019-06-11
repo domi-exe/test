@@ -64,8 +64,8 @@ body {
     align-items: center;
     /* ******** dopracować wyśrodkowanie w przypadku HOME ********** */
     justify-content: center;
-    height: 400px;
-    width: 400px;
+    height: 360px;
+    width: 360px;
     background: rgba(255, 255, 255, 0.815);
     border: 1px solid rgba(255, 255, 255, 0.815);
     border-radius: 5px;
