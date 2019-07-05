@@ -2,7 +2,6 @@
     <div class="container">
         <div class="img1Container">
             <img src="../assets/con2.jpg" alt="" class="firstImg">
-            <div class="cover"></div>
             <h3>All Vehicles</h3>
         </div>
         <app-menu></app-menu>
@@ -67,21 +66,17 @@ export default {
 }
 .img1Container {
     position: relative;
+    background: linear-gradient(45deg ,  #1b85ff98 70%, transparent );
+    
 }
  .img1Container .firstImg {
     width: 100%;
     height: auto;
     object-fit: cover;
+    z-index: -1;
+    position: relative;
 }
-.img1Container .cover {
-    /* background-color: rgba(255,255,255,0.6); */
-    background-color: #1b85ffa1;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-}
+
 .img1Container h3 {
     /* color: #ff1414; */
     color: #fff;
@@ -111,6 +106,8 @@ export default {
     margin: 10px 30px 10px 30px;
     /* margin: 10px; */
     text-align: center;
+    background: linear-gradient(to top, rgba(214, 214, 214, 0.247) 20%, transparent )
+ 
 }
 .g p {
     color: #2f3538;
